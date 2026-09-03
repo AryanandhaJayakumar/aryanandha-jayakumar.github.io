@@ -198,18 +198,51 @@
   }
 
   /* ---------- SKILLS ---------- */
+  #skills{ background:var(--paper); }
   .skills-grid{
-    max-width:1100px; margin:0 auto;
-    display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:50px;
+    max-width:1150px; margin:0 auto;
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:28px;
   }
-  .skill-cat h3{
-    font-size:1.15rem; text-transform:uppercase; letter-spacing:.06em;
-    margin-bottom:18px; padding-bottom:10px; border-bottom:1px solid var(--ink);
+  .skill-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:38px 32px;
+    text-align:center;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease;
   }
-  .skill-cat ul{ list-style:none; }
-  .skill-cat li{ padding:6px 0; color:#333; font-size:.98rem; }
-
+  .skill-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 24px 48px -22px rgba(20,20,20,.25);
+    border-color:var(--ink);
+  }
+  .skill-card h3{
+    font-size:1.3rem;
+    font-weight:500;
+    letter-spacing:.02em;
+    margin-bottom:22px;
+    color:var(--ink);
+  }
+  .skill-pills{
+    display:flex; flex-wrap:wrap; gap:10px; justify-content:center;
+  }
+  .pill{
+    background:var(--pill);
+    border:1px solid var(--line);
+    color:#333;
+    font-family:'Jost', sans-serif;
+    font-size:.9rem;
+    letter-spacing:.01em;
+    padding:9px 18px;
+    border-radius:999px;
+    transition:background .25s ease, color .25s ease, border-color .25s ease;
+  }
+  .skill-card:hover .pill{ border-color:transparent; }
+  .pill:hover{
+    background:var(--ink);
+    color:#fff;
+  }
   /* ---------- CONTACT / FOOTER ---------- */
   footer{
     padding:90px 6vw 50px;
@@ -456,28 +489,55 @@
 
 <!-- ================= SKILLS ================= -->
 <section id="skills">
-  <h2 class="serif" style="text-align:center; margin-bottom:70px;">SKILLS</h2>
-   <div class="eyebrow" style="text-align:center;">What I Work With</div>
+  <h2 class="serif" style="margin-bottom:14px;">SKILLS</h2>
+  <div class="eyebrow" style="text-align:center; margin-bottom:60px;">What I Work With</div>
   <div class="skills-grid">
-    <div class="skill-cat">
-      <h3>Languages</h3>
-      <ul><li>Python</li><li>Java</li><li>JavaScript</li><li>HTML5</li><li> CSS3</li></ul>
-    </div>
-    <div class="skill-cat">
+    <div class="skill-card">
       <h3>Frontend</h3>
-      <ul><li>React.js</li><li>Responsive Design</li></ul>
+      <div class="skill-pills">
+        <span class="pill">HTML</span>
+        <span class="pill">CSS</span>
+        <span class="pill">JavaScript</span>
+        <span class="pill">React.js</span>
+        <span class="pill">Responsive Design</span>
+      </div>
     </div>
-    <div class="skill-cat">
+    <div class="skill-card">
       <h3>Backend</h3>
-      <ul><li>Node.js / Express.js</li><li>Flask</li><li>REST APIs</li><li>Django</li><li>Figma</li></ul>
+      <div class="skill-pills">
+        <span class="pill">Node.js / Express.js</span>
+        <span class="pill">Flask</span>
+        <span class="pill">Django</span>
+        <span class="pill">REST APIs</span>
+      </div>
     </div>
-    <div class="skill-cat">
-      <h3>Databases</h3>
-      <ul><li>MongoDB</li><li>MySQL</li></ul>
+    <div class="skill-card">
+      <h3>Database</h3>
+      <div class="skill-pills">
+        <span class="pill">MongoDB</span>
+        <span class="pill">MySQL</span>
+      </div>
     </div>
-    <div class="skill-cat">
+    <div class="skill-card">
+      <h3>Languages</h3>
+      <div class="skill-pills">
+        <span class="pill">Python</span>
+        <span class="pill">Java</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h3>Design</h3>
+      <div class="skill-pills">
+        <span class="pill">UI/UX</span>
+        <span class="pill">Figma</span>
+      </div>
+    </div>
+    <div class="skill-card">
       <h3>Tools</h3>
-      <ul><li>Git &amp; GitHub</li><li>VS Code</li></ul>
+      <div class="skill-pills">
+        <span class="pill">Git &amp; GitHub</span>
+        <span class="pill">VS Code</span>
+      </div>
     </div>
   </div>
 </section>
