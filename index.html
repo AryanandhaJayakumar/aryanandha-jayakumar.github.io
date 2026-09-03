@@ -170,32 +170,88 @@
   }
 
   /* ---------- PROJECTS ---------- */
-  .project{
-    display:grid;
-    grid-template-columns:0.9fr 1.1fr;
-    gap:70px;
-    align-items:center;
-    padding:100px 0;
-    border-bottom:1px solid var(--line);
-  }
-  .project:last-child{ border-bottom:none; }
-  .project > div:first-child{
-    display:flex; flex-direction:column; align-items:center; text-align:center;
-  }
-  .project-title{
-    font-size:clamp(2rem, 4vw, 3rem);
-    text-transform:uppercase;
-    line-height:1.15;
-    font-weight:500;
-  }
-  .project-body p{ margin-bottom:20px; line-height:1.85; color:#2b2b2b; font-size:1rem; }
-  .project-body strong{ font-weight:500; color:var(--ink); }
-  #projects .wrap{ max-width:1280px; margin:0 auto; }
-  #projects > .eyebrow, #projects > h2.serif{ max-width:1280px; margin:0 auto; }
+    #projects .wrap{ max-width:880px; margin:0 auto; }
+  #projects > .eyebrow, #projects > h2.serif{ max-width:880px; margin:0 auto; }
   #projects h2.serif{
-    max-width:1280px; margin:0 auto 60px;
+    max-width:880px; margin:0 auto 60px;
     font-size:clamp(1.8rem,3.4vw,2.6rem);
   }
+  .project-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:clamp(28px,4vw,48px);
+    margin-bottom:36px;
+    text-align:left;
+    transition:box-shadow .35s ease, transform .35s ease, border-color .35s ease;
+  }
+  .project-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 30px 60px -28px rgba(20,20,20,.28);
+    border-color:var(--ink);
+  }
+  .project-card:last-child{ margin-bottom:0; }
+  .project-top{
+    display:flex; justify-content:space-between; align-items:center;
+    margin-bottom:20px; gap:16px; flex-wrap:wrap;
+  }
+  .project-num{
+    font-family:'Playfair Display', serif; font-style:italic;
+    color:var(--muted); font-size:.95rem; letter-spacing:.05em;
+  }
+  .project-badge{
+    font-size:.68rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--muted); border:1px solid var(--line);
+    padding:6px 14px; border-radius:999px; background:var(--paper);
+    white-space:nowrap;
+  }
+  .project-card h3{
+    font-family:'Playfair Display', serif;
+    font-size:clamp(1.6rem,3vw,2.15rem);
+    font-weight:500;
+    text-align:left;
+    margin-bottom:16px;
+  }
+  .project-desc{
+    color:#333; line-height:1.85; font-size:1rem; margin-bottom:26px;
+  }
+  .project-tech h4{
+    font-size:.72rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--muted); margin-bottom:12px; text-align:left;
+  }
+  .tech-pills{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:28px; }
+  .tech-pills .pill{ padding:7px 14px; font-size:.8rem; }
+  .project-link{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:.9rem; letter-spacing:.03em; color:var(--ink);
+    border-bottom:1px solid var(--ink); padding-bottom:3px;
+    transition:opacity .2s ease;
+  }
+  .project-link:hover{ opacity:.55; }
+  .project-link svg{ width:13px; height:13px; transition:transform .2s ease; }
+  .project-link:hover svg{ transform:translateX(4px); }
+ 
+  .project-stat{
+    font-size:.9rem; color:var(--muted); margin-bottom:26px;
+    padding-left:16px; border-left:2px solid var(--line);
+  }
+  .featured-tag{
+    font-size:.66rem; letter-spacing:.14em; text-transform:uppercase;
+    color:#fff; background:var(--ink);
+    padding:5px 12px; border-radius:999px; margin-right:8px;
+  }
+  .project-actions{ display:flex; flex-wrap:wrap; gap:14px; }
+  .btn-outline{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:.9rem; letter-spacing:.03em; color:var(--ink);
+    border:1px solid var(--ink); padding:10px 20px; border-radius:999px;
+    transition:background .2s ease, color .2s ease;
+  }
+  .btn-outline:hover{ background:var(--ink); color:#fff; }
+  .project-actions .project-link{
+    border:1px solid transparent; border-bottom:none; padding:10px 4px;
+  }
+
 
   /* ---------- SKILLS ---------- */
   #skills{ background:var(--paper); }
@@ -421,102 +477,122 @@
 <section id="projects">
   <h2 class="serif">PROJECTS</h2>
   <div class="wrap">
-
-    <div class="project">
-      <div>
-        <div class="project-title">Online<br>Photographer<br>Booking: CLICKSY</div>
-        <a href="https://github.com/AryanandhaJayakumar/CLICKSY" target="_blank" rel="noopener" class="btn dark" style="margin-top:32px;">View Project</a>
+ 
+    <div class="project-card">
+      <div class="project-top">
+        <span class="project-num"><span class="featured-tag">Featured</span>01</span>
+        <span class="project-badge">Booking Platform</span>
       </div>
-      <div class="project-body">
-        <p>
-          <strong>CLICKSY</strong> ,a web platform that makes it easier for people to find and book photographers in one place. Users can browse photographer profiles and portfolios, compare packages, check availability, choose a suitable service, and complete their booking online. Photographers can maintain their profiles, showcase their work, manage packages and pricing, and keep track of booking requests. The platform also includes user authentication, reviews, ratings, and payment handling.
-
-        </p>
-        <p>
-         This project was developed using <strong>React.js, JavaScript, HTML, and CSS</strong> for the frontend, with <strong>Node.js and Express.js</strong> handling the backend services. <strong>MongoDB</strong> was used to store user, photographer, portfolio, package, booking, and review details. <strong>REST APIs</strong> connected the frontend with the backend, while <strong>JWT and bcrypt</strong> were used for login security. I used <strong>Git and GitHub</strong> for version control, <strong>Postman</strong> for API testing, and <strong>VS Code</strong> throughout the development process.
-        </p>
+      <h3>CLICKSY — Online Photographer Booking</h3>
+      <p class="project-desc">
+        A web platform that makes it easier for people to find and book photographers in one place. Users browse profiles and portfolios, compare packages, check availability, and complete bookings online, while photographers manage their profiles, pricing, and requests.
+      </p>
+      <p class="project-stat">Handles booking, packages, reviews &amp; payments across 3 user roles — with JWT-secured auth.</p>
+      <div class="project-tech">
+        <h4>Technologies</h4>
+        <div class="tech-pills">
+          <span class="pill">React</span>
+          <span class="pill">Node.js</span>
+          <span class="pill">Express.js</span>
+          <span class="pill">MongoDB</span>
+          <span class="pill">REST API</span>
+          <span class="pill">JWT</span>
+        </div>
       </div>
-    </div>
-
-
-    <div class="project">
-  <div>
-    <div class="project-title">Interactive<br>Quiz<br>Application</div>
-    <a href="https://github.com/AryanandhaJayakumar/QuizApp" target="_blank" rel="noopener" class="btn dark" style="margin-top:32px;">View Project</a>
-  </div>
-
-  <div class="project-body">
-    <p>
-      <strong>QUIZMASTER</strong>, an interactive web-based quiz application designed
-      to make learning more engaging and enjoyable. Users can create an account,
-      log in, select different quiz categories, and attend timed quizzes. The
-      application provides instant answer explanations, progress tracking,
-      performance levels, achievements, and quiz statistics. Users can also
-      retake quizzes to improve their scores and track their overall performance.
-    </p>
-
-    <p>
-      This project was developed using <strong>HTML5, CSS3, and JavaScript</strong>.
-      <strong>HTML5</strong> was used to structure the application, while <strong>CSS3 </strong>was used for the
-      responsive design, animations, cards, buttons, and modern dashboard interface.
-      <strong>JavaScript</strong> handles the quiz logic, timer, category selection,
-      answer validation, score calculation, instant explanations, achievements,
-      performance levels, and progress tracking. <strong>Browser LocalStorage</strong>
-      was used to store user information, login status, quiz statistics, scores,
-      and achievements. The project was developed and tested using
-      <strong>VS Code</strong> and managed with <strong>Git and GitHub</strong>.
-    </p>
-  </div>
-</div>
-
-    <div class="project">
-  <div>
-    <div class="project-title">Music &<br>Video<br>Streaming<br>App</div>
-    <a href="https://github.com/AryanandhaJayakumar/vibra" target="_blank" rel="noopener" class="btn dark" style="margin-top:32px;">View Project</a>
-  </div>
-
-  <div class="project-body">
-    <p>
-      <strong>VIBRA</strong>, a modern music and video streaming web application
-      designed to provide an interactive and engaging entertainment experience.
-      Users can create an account, log in, explore music and video content, search
-      for their favorite tracks, play media, manage their queue, and view recently
-      played content. The application also includes shuffle, repeat, favorite,
-      volume, fullscreen, and previous/next playback controls for a smooth
-      streaming experience.
-    </p>
-
-    <p>
-      This project was developed using <strong>HTML5, CSS3, and JavaScript</strong>.
-      <strong>HTML5</strong> was used to structure the application and integrate
-      audio and video elements, while <strong>CSS3</strong> was used for the
-      responsive design, animations, gradients, cards, buttons, and modern
-      dashboard interface. <strong>JavaScript</strong> handles user authentication,
-      media playback, search, queue management, shuffle, repeat, favorites,
-      recently played content, volume control, progress tracking, and interactive
-      dashboard features. <strong>Browser LocalStorage</strong> was used to store
-      user information, login status, preferences, favorites, and recently played
-      content. The project was developed and tested using <strong>VS Code</strong>
-      and managed with <strong>Git and GitHub</strong>.
-    </p>
-  </div>
-</div>
-    
-    <div class="project">
-      <div>
-        <div class="project-title">Weather<br>Forecasting<br>System</div>
-        <a href="https://github.com/AryanandhaJayakumar/weather" target="_blank" rel="noopener" class="btn dark" style="margin-top:32px;">View Project</a>
-      </div>
-      <div class="project-body">
-        <p>
-         <strong>WEATHER FORCASTING APPLICATION </strong>that uses past weather records to estimate upcoming atmospheric conditions. The application works with factors such as <strong>temperature, humidity, wind speed, and atmospheric pressure</strong>, allowing the system to identify relationships in the data and produce short-term predictions. I worked on preparing the weather data, handling missing or inconsistent values, selecting useful parameters, and training the prediction model.
-          </p>
-        <p>
-          This project was built mainly with <strong>Python</strong>, using <strong>Pandas and NumPy</strong> for data processing and <strong>Scikit-learn</strong> for machine learning. <strong>Flask</strong> was used to connect the prediction model with the web application, while <strong>HTML, CSS, and JavaScript</strong> were used for the user interface. <strong>Jupyter Notebook and VS Code</strong> were used during development and model testing, with <strong>Git and GitHub</strong> for maintaining the project code.
-        </p>
+      <div class="project-actions">
+        <!-- TODO: replace # with your deployed URL (e.g. Vercel/Render) -->
+        <a href="#" target="_blank" rel="noopener" class="btn-outline">Live Demo</a>
+        <a href="https://github.com/AryanandhaJayakumar/CLICKSY" target="_blank" rel="noopener" class="project-link">
+          View Code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
     </div>
-
+ 
+    <div class="project-card">
+      <div class="project-top">
+        <span class="project-num"><span class="featured-tag">Featured</span>02</span>
+        <span class="project-badge">Quiz App</span>
+      </div>
+      <h3>QUIZMASTER — Interactive Quiz Application</h3>
+      <p class="project-desc">
+        An interactive web-based quiz app designed to make learning engaging. Users select categories, attend timed quizzes, get instant explanations, and track progress, performance levels, achievements, and statistics across attempts.
+      </p>
+      <p class="project-stat">Multiple quiz categories with timed rounds, instant explanations &amp; a full achievements system.</p>
+      <div class="project-tech">
+        <h4>Technologies</h4>
+        <div class="tech-pills">
+          <span class="pill">HTML5</span>
+          <span class="pill">CSS3</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">LocalStorage</span>
+        </div>
+      </div>
+      <div class="project-actions">
+        <!-- TODO: replace # with your deployed URL (e.g. Vercel/Netlify) -->
+        <a href="#" target="_blank" rel="noopener" class="btn-outline">Live Demo</a>
+        <a href="https://github.com/AryanandhaJayakumar/QuizApp" target="_blank" rel="noopener" class="project-link">
+          View Code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+ 
+    <div class="project-card">
+      <div class="project-top">
+        <span class="project-num">03</span>
+        <span class="project-badge">Streaming App</span>
+      </div>
+      <h3>VIBRA — Music & Video Streaming App</h3>
+      <p class="project-desc">
+        A modern music and video streaming web app with an interactive playback experience — search, queue management, shuffle, repeat, favorites, and recently played content, alongside full playback controls.
+      </p>
+      <p class="project-stat">Full playback suite — shuffle, repeat, queue, favorites &amp; recently played, all persisted locally.</p>
+      <div class="project-tech">
+        <h4>Technologies</h4>
+        <div class="tech-pills">
+          <span class="pill">HTML5</span>
+          <span class="pill">CSS3</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">LocalStorage</span>
+        </div>
+      </div>
+      <div class="project-actions">
+        <!-- TODO: replace # with your deployed URL (e.g. Vercel/Netlify) -->
+        <a href="#" target="_blank" rel="noopener" class="btn-outline">Live Demo</a>
+        <a href="https://github.com/AryanandhaJayakumar/vibra" target="_blank" rel="noopener" class="project-link">
+          View Code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+ 
+    <div class="project-card">
+      <div class="project-top">
+        <span class="project-num">04</span>
+        <span class="project-badge">ML Forecasting</span>
+      </div>
+      <h3>Weather Forecasting System</h3>
+      <p class="project-desc">
+        A weather forecasting app that uses historical records to estimate upcoming conditions — temperature, humidity, wind speed, and pressure — identifying relationships in the data to produce short-term predictions.
+      </p>
+      <p class="project-stat">Trained on historical weather data across 4 parameters to generate short-term forecasts.</p>
+      <div class="project-tech">
+        <h4>Technologies</h4>
+        <div class="tech-pills">
+          <span class="pill">Python</span>
+          <span class="pill">Pandas</span>
+          <span class="pill">NumPy</span>
+          <span class="pill">Scikit-learn</span>
+          <span class="pill">Flask</span>
+        </div>
+      </div>
+      <div class="project-actions">
+        <!-- TODO: replace # with your deployed URL (e.g. Render/Railway) -->
+        <a href="#" target="_blank" rel="noopener" class="btn-outline">Live Demo</a>
+        <a href="https://github.com/AryanandhaJayakumar/weather" target="_blank" rel="noopener" class="project-link">
+          View Code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+ 
   </div>
 </section>
 
